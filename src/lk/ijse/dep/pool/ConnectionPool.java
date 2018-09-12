@@ -31,10 +31,11 @@ public class ConnectionPool {
 
         Class.forName(classname);
 
-        Connection connection = DriverManager.getConnection(url, uname, pass);
+      
 
         for (int x = 0; x < inti; x++) {
-            connectionPool.add(connection);
+         Connection connection = DriverManager.getConnection(url, uname, pass);
+         connectionPool.add(connection);
         }
     }
 
@@ -67,7 +68,7 @@ public class ConnectionPool {
             Connection connection = consumerPool.get(0);
             connectionPool.add(connection);
             consumerPool.remove(connection);
-            notifyAll();
+            notify();
             return true;
         }else{
             return false;

@@ -51,9 +51,6 @@ public class MainPageController implements Initializable {
 
     @FXML
     private void btnGetOnAction(ActionEvent event) {
-    
-        
-        
         new Thread(() -> {
              connection = connectionPool.getConnection();
            
